@@ -2,6 +2,12 @@
     "name": "Python Development",
     "image": "python:3.9",  // Use the Python version that matches your project
 
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:1": {
+            "version": "latest",
+            "moby": true
+        }
+    },
     "customizations": {
         // Configure properties specific to VS Code.
         "vscode": {
@@ -28,7 +34,7 @@
         }
     },
     "forwardPorts": [
-        5000  // Forward the port your app runs on, e.g., Flask default is 5000
+        8080  // Forward the port your app runs on, e.g., Flask default is 5000
     ],
 
     "postCreateCommand": "pip install -r requirements.txt",  // Install dependencies
