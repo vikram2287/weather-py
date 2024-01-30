@@ -1,7 +1,18 @@
 {
     "name": "Python Development",
-    "image": "python:3.9",  // Use the Python version that matches your project
 
+    "build": {
+		"dockerfile": "Dockerfile",
+		"context": "..",
+		"args": {
+			// Update 'VARIANT' to pick a Python version: 3, 3.10, 3.9, 3.8, 3.7, 3.6
+			// Append -bullseye or -buster to pin to an OS version.
+			// Use -bullseye variants on local on arm64/Apple Silicon.
+			"VARIANT": "3.8-bullseye",
+			// Options
+			"NODE_VERSION": "none"
+		}
+	},
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:1": {
             "version": "latest",
